@@ -9,7 +9,8 @@
 
 解析データを整理するため、ホームディレクトリに専用のフォルダ構造を作成します。
 以下の構成になるようにファイルを配置してください。
-
+To organise your analysis data, create a dedicated folder structure in your home directory.
+Please arrange your files so that they follow the structure below.
 ```
 Taxonomic_analysis/
 ├── scripts/       # 解析に使用するスクリプトを保存
@@ -23,65 +24,19 @@ Taxonomic_analysis/
         ├── convert.txt  # サンプル情報（メタデータ）
         └── map.txt      # サンプル情報（メタデータ）
 ```
-
----
-
-## １．解析の準備（初回のみ）
-
-### １－１．Minicondaのインストール
-
-「Miniconda」をインストール（Linuxで実行）します。ホームディレクトリで作業します。
-
-```bash
-# ホームディレクトリへ移動
-cd ~
-# Linux用のMinicondaインストーラーをダウンロード
-wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
-# インストーラーを実行
-bash Miniconda3-latest-Linux-x86_64.sh
-```
-
-**【インストール中の進め方】** Enter キーを押し、ライセンス条項をスクロールして確認。Do you accept the license terms? [yes|no] → yes と入力して Enter。Press ENTER to confirm the location → そのまま Enter。by running conda init? → yes と入力して Enter。
-
-**【設定の反映】** インストール完了後、以下のコマンドで設定を有効化します。
-
-```bash
-source ~/.bashrc
-```
-
-これで、画面の左側に再び (base) が表示されれば、Linux版Minicondaのインストール完了です。以下のコマンドでバージョンが出るかを確認します。
-
-```bash
-conda -V
-```
-
-### １－２．QIIME 2 のダウンロード（mambaによる安定版構築）
-
-QIIME 2はデータが重く、標準の conda ではエラーが出やすいため、高速化ツール mamba を使用して安定版（2025.10）をインストールします。
-
-```bash
-# 高速化ツール「mamba」の導入
-conda install -n base -c conda-forge mamba -y
-
-# QIIME 2（2025.10）の設計図をダウンロード
-wget https://raw.githubusercontent.com/qiime2/distributions/refs/heads/dev/2025.10/amplicon/released/qiime2-amplicon-ubuntu-latest-conda.yml
-
-# mamba を使って環境構築（インストール）を実行
-mamba env create --name qiime2-amplicon-2025.10 --file qiime2-amplicon-ubuntu-latest-conda.yml
-
-# 不要になった設定ファイルを削除
-rm qiime2-amplicon-ubuntu-latest-conda.yml
 ```
 
 ### １－３．データベースのダウンロード（初回のみ）
 
 VSEARCHコンセンサス法では「配列」と「分類名」の2つのファイルを使用します。公式のSILVA 138データベースをダウンロードします。
+The VSEARCH consensus method uses two files: ‘sequences’ and ‘taxonomic names’. Download the official SILVA 138 database.
 
+https://docs.qiime2.org/2024.10/data-resources/
 ```bash
-# databaseフォルダに移動
+# Go to the database folder
 cd ~/work/Taxonomic_analysis/database
 
-# SILVA 138の代表配列（seqs）と分類名（tax）をダウンロード
+# Download the representative sequences (seqs) and taxonomic names (tax) for SILVA 138
 wget https://data.qiime2.org/2024.10/common/silva-138-99-seqs.qza
 wget https://data.qiime2.org/2024.10/common/silva-138-99-tax.qza
 ```
