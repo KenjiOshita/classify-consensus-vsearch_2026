@@ -33,8 +33,8 @@ Taxonomic_analysis/
 
 VSEARCHコンセンサス法では「配列」と「分類名」の2つのファイルを使用します。公式のSILVA 138データベースをダウンロードします。
 The VSEARCH consensus method uses two files: ‘sequences’ and ‘taxonomic names’. Download the official SILVA 138 database.
-
 https://docs.qiime2.org/2024.10/data-resources/
+
 ---
 
 ```bash
