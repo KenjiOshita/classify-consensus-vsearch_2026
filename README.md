@@ -1,8 +1,7 @@
 # classify-consensus-vsearch_2026
 
 このリポジトリは、メタバーコーディング解析で得られた配列データに対し、QIIME 2の公式プラグイン（classify-consensus-vsearch）とSILVAデータベースを用いて系統分類を自動で行い、最終的にASVテーブル（CSV形式）を出力する手順をまとめたものです。BLASTよりも高速に系統分類を実行できる方法です。RAMが16GB以上あるPCの場合は、機械学習などより高度なアルゴリズムを用いた系統分類が可能であり、本解析方法はそのような解析ができないが、系統分類を自動化したい場合に適しています。注意：これらの解析はWindowsでLinuxが使える状態で実施可能です。Linuxをダウンロード済みのPCで実行してください。  
-原著論文：Rognes T, Flouri T, Nichols B, Quince C, Mahé F. VSEARCH: a versatile open source tool for metagenomics. PeerJ. 2016;4:e2584. doi:10.7717/peerj.2584  
-HP: https://docs.qiime2.org/2024.10/plugins/available/feature-classifier/classify-consensus-vsearch/
+原著論文：Torbjørn Rognes, Tomáš Flouri, Ben Nichols, Christopher Quince, and Frédéric Mahé. Vsearch: a versatile open source tool for metagenomics. PeerJ, 4:e2584, 2016. doi:10.7717/peerj.2584.
 
 ---
 
