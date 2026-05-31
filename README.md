@@ -1,7 +1,10 @@
 # classify-consensus-vsearch_2026
 
-このリポジトリは、メタバーコーディング解析で得られた配列データに対し、QIIME 2の公式プラグイン（classify-consensus-vsearch）とSILVAデータベースを用いて系統分類を自動で行い、最終的にASVテーブル（CSV形式）を出力する手順をまとめたものです。BLASTよりも高速に系統分類を実行できる方法です。RAMが16GB以上あるPCの場合は、機械学習などより高度なアルゴリズムを用いた系統分類が可能であり、本解析方法はそのような解析ができないが、系統分類を自動化したい場合に適しています。注意：これらの解析はWindowsでLinuxが使える状態で実施可能です。Linuxをダウンロード済みのPCで実行してください。  
+このリポジトリは、メタバーコーディング解析で得られた配列データに対し、QIIME 2の公式プラグイン（classify-consensus-vsearch）とSILVAデータベースを用いて系統分類を自動で行い、最終的にASVテーブル（TSV形式）を出力する手順をまとめたものです。注意：スレッド数を40に設定しており、一般的なPCでは解析できません。
 原著論文：Torbjørn Rognes, Tomáš Flouri, Ben Nichols, Christopher Quince, and Frédéric Mahé. Vsearch: a versatile open source tool for metagenomics. PeerJ, 4:e2584, 2016. doi:10.7717/peerj.2584.
+
+This repository summarises a workflow that automatically performs phylogenetic classification on sequence data obtained from metagenomic analysis using the official QIIME 2 plugin (classify-consensus-vsearch) and the SILVA database, ultimately outputting an ASV table (in TSV format). Note: The number of threads is set to 40, so this analysis cannot be performed on a standard PC.
+Original paper: Torbjørn Rognes, Tomáš Flouri, Ben Nichols, Christopher Quince, and Frédéric Mahé. Vsearch: a versatile open source tool for metagenomics. PeerJ, 4:e2584, 2016. doi:10.7717/peerj.2584.
 
 ---
 
@@ -24,7 +27,7 @@ Taxonomic_analysis/
         ├── convert.txt  # サンプル情報（メタデータ）
         └── map.txt      # サンプル情報（メタデータ）
 ```
-```
+---
 
 ### １－３．データベースのダウンロード（初回のみ）
 
@@ -32,6 +35,8 @@ VSEARCHコンセンサス法では「配列」と「分類名」の2つのファ
 The VSEARCH consensus method uses two files: ‘sequences’ and ‘taxonomic names’. Download the official SILVA 138 database.
 
 https://docs.qiime2.org/2024.10/data-resources/
+---
+
 ```bash
 # Go to the database folder
 cd ~/work/Taxonomic_analysis/database
@@ -40,7 +45,6 @@ cd ~/work/Taxonomic_analysis/database
 wget https://data.qiime2.org/2024.10/common/silva-138-99-seqs.qza
 wget https://data.qiime2.org/2024.10/common/silva-138-99-tax.qza
 ```
-
 ---
 
 ## ２．解析の実行 / 2. Running the Analysis
