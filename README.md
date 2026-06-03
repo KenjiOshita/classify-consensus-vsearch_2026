@@ -17,7 +17,7 @@ Please arrange your files so that they follow the structure below.
 ```
 Taxonomic_analysis/
 ├── scripts/       # 解析に使用するスクリプトを保存
-│   ├── run_qiime2_vsearch.sh
+│   ├── run_blast.sh
 │   └── convert_to_csv_split.py
 ├── database/      # SILVAなどのデータベースを保存
 └── analysis/
@@ -72,7 +72,7 @@ The script automatically runs consensus classification at a 97% identity thresho
 ```bash
 # 解析の実行（一番最後の解析フォルダ名「HIroshimabay_2025_18S」を適宜変更すること）
 # Run analysis (change the last argument to your own analysis folder name)
-bash scripts/run_qiime2_vsearch.sh analysis/HIroshimabay_2025_18S
+bash scripts/run_blast.sh analysis/Hiroshimabay_2025_18S
 ```
 
 **【主要パラメータの説明 / Key Parameters】**
